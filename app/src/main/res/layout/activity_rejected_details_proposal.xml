@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:background="#FFFBF5"
-    tools:context=".features.proposal.RejectedDetailsProposalActivity">
+    tools:context=".features.proposal.view.RejectedDetailsProposalActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

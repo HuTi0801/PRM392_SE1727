@@ -14,7 +14,7 @@
         android:theme="@style/Theme.MentorLink_Project"
         tools:targetApi="31">
         <activity
-            android:name=".features.login.LoginActivity"
+            android:name=".features.proposal.view.PendingDetailsProposalActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,35 +23,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".features.dashboard.StudentDashboardActivity"
+            android:name=".features.dashboard.view.StudentDashboardActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".features.proposal.CreateProposalActivity"
+            android:name=".features.proposal.view.CreateProposalActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".features.group.GroupDetailActivity"
+            android:name=".features.group.view.GroupDetailActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".features.proposal.ProposalDetailActivity"
+            android:name=".features.proposal.view.ProposalDetailActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".features.dashboard.LectureDashboardActivity"
+            android:name=".features.dashboard.view.LectureDashboardActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".features.proposal.PendingDetailsProposalActivity"
+            android:name=".features.login.LoginActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".features.proposal.RejectedDetailsProposalActivity"
+            android:name=".features.proposal.view.RejectedDetailsProposalActivity"
             android:exported="true">
         </activity>
         <activity
-            android:name=".features.proposal.ApprovedDetailsProposalActivity"
+            android:name=".features.proposal.view.ApprovedDetailsProposalActivity"
             android:exported="true">
         </activity>
     </application>

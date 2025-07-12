@@ -63,4 +63,44 @@ public class ProjectRepository {
         db.update(ProjectDao.TABLE_NAME, values, "id = ?", new String[]{String.valueOf(projectId)});
         db.close();
     }
+
+    public void updateStatusAndRejectReason(int projectId, String status, String rejectReason) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("status", status);
+        values.put("reject_reason", rejectReason);
+        db.update(ProjectDao.TABLE_NAME, values, "id = ?", new String[]{String.valueOf(projectId)});
+        db.close();
+    }
+
+    public List<ProjectEntity> getProjectsByStatus(String status) {
+        List<ProjectEntity> list = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.query(
+                ProjectDao.TABLE_NAME,
+                null,
+                "status = ?",
+                new String[]{status},
+                null, null, null
+        );
+
+        while (cursor.moveToNext()) {
+            ProjectEntity p = new ProjectEntity();
+            p.setId(cursor.getInt(cursor.getColumnIndexOrThrow("id")));
+            p.setGroupId(cursor.getInt(cursor.getColumnIndexOrThrow("group_id")));
+            p.setLectureCode(cursor.getString(cursor.getColumnIndexOrThrow("lecture_code")));
+            p.setTopic(cursor.getString(cursor.getColumnIndexOrThrow("topic")));
+            p.setDescription(cursor.getString(cursor.getColumnIndexOrThrow("description")));
+            p.setStatus(cursor.getString(cursor.getColumnIndexOrThrow("status")));
+            p.setCreatedAt(cursor.getString(cursor.getColumnIndexOrThrow("created_at")));
+            p.setRejectReason(cursor.getString(cursor.getColumnIndexOrThrow("reject_reason")));
+            p.setDocumentUrl(cursor.getString(cursor.getColumnIndexOrThrow("document_url")));
+            list.add(p);
+        }
+
+        cursor.close();
+        db.close();
+        return list;
+    }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:background="#FFFBF5"
-    tools:context=".features.proposal.PendingDetailsProposalActivity">
+    tools:context=".features.proposal.view.PendingDetailsProposalActivity">
 
 
     <LinearLayout
